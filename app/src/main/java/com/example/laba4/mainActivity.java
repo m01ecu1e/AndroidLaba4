@@ -94,7 +94,21 @@ public class mainActivity extends Activity {
 
     }
 
+    public void loadData() {
+        sharedPrefs = this.getPreferences(Context.MODE_PRIVATE);
+//      editikText.setText(sharedPrefs.getString("test1","bib"));
 
+        int size = sharedPrefs.getInt("size", 0);
+        int i;
+
+        for (i = 0; i < size; i++) {
+            itemList.add(sharedPrefs.getString("" + i, ""));
+            arrayAdapter.notifyDataSetChanged();
+        }
+
+        Log.i("OTLADKA_PRINTFOM", "loadData");
+        Log.i("OTLADKA_PRINTFOM", (sharedPrefs.getString("test1","bib")));
+    }
 
     public void saveData() {
         editor.putInt("size", itemList.size());
