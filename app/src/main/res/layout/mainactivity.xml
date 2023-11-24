@@ -19,6 +19,13 @@
         android:textSize="18dp"
         android:text="Удалить" />
     <Button
+        android:id="@+id/deleteShared"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:textSize="18dp"
+        android:text="Удалить shared" />
+    <Button
         android:id="@+id/deleteAllButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

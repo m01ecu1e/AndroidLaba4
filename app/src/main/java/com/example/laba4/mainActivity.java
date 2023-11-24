@@ -40,6 +40,8 @@ public class mainActivity extends Activity {
         TextView usernameText = findViewById(R.id.username);
         usernameText.setText(username);
 
+
+
         listView = (ListView) findViewById(R.id.List1);
         itemList = new ArrayList<>();
 
@@ -47,6 +49,13 @@ public class mainActivity extends Activity {
         listView.setAdapter(arrayAdapter);
 
         loadData();
+
+        Button deleteShared = findViewById(R.id.deleteShared);
+        deleteShared.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                clearShared();
+            }
+        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -121,6 +130,15 @@ public class mainActivity extends Activity {
         editor.apply();
 
         Log.i("OTLADKA_PRINTFOM", "saveData");
+    }
+
+    public void clearShared() {
+
+        editor.clear();
+        editor.apply();
+        itemList.clear();
+        arrayAdapter.notifyDataSetChanged();
+
     }
 
     @Override
